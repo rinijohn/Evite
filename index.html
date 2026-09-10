@@ -3,7 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You're Invited</title>
+<title>We're Engaged &mdash; You're Invited</title>
+
+<!-- Open Graph / link preview tags — update the URLs below once this page is hosted -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="We're Engaged! Rini &amp; Jeff">
+<meta property="og:description" content="Join us to celebrate our engagement — Thursday, 12 November 2026 at Kalathur Gardens, Bengaluru, Karnataka.">
+<meta property="og:image" content="https://REPLACE-WITH-YOUR-DOMAIN/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://REPLACE-WITH-YOUR-DOMAIN/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="We're Engaged! Rini &amp; Jeff">
+<meta name="twitter:description" content="Join us to celebrate our engagement — Thursday, 12 November 2026 at Kalathur Gardens, Bengaluru, Karnataka.">
+<meta name="twitter:image" content="https://REPLACE-WITH-YOUR-DOMAIN/preview.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500&display=swap" rel="stylesheet">
@@ -292,7 +307,7 @@
 
     <p class="lede">
       joyfully invite you to celebrate their <em>engagement</em> &mdash;
-      an evening of warm company, and a promise that's just beginning.
+      an evening of good food, warm company, and a promise that's just beginning.
     </p>
 
     <div class="details">
@@ -310,15 +325,36 @@
     <div class="venue-block">
       <div class="label">VENUE</div>
       <div class="venue-name">Kalathur Gardens</div>
-      <div class="venue-address">Bengaluru, India</div>
+      <div class="venue-address">Bengaluru, Karnataka</div>
     </div>
 
     <div class="rsvp">
-      <a class="rsvp-btn" href="https://www.google.com/maps/dir//Kalathur+Gardens,+19+Lakshmipura+Cross,+Hesaraghatta+Rd,+Vaderahalli,+Guniagrahara,+Karnataka+560097,+India/@13.0955919,77.5313154,17z/data=!4m17!1m7!3m6!1s0x3bae22b30bffffff:0x94c187e35e34d95e!2sKalathur+Gardens!8m2!3d13.0955919!4d77.5338903!16s%2Fg%2F1tgfnkwl!4m8!1m0!1m5!1m1!1s0x3bae22b30bffffff:0x94c187e35e34d95e!2m2!1d77.5338903!2d13.0955919!3e0?entry=ttu&g_ep=EgoyMDI2MDkwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
-        Directions
+      <a class="rsvp-btn" id="directions-link" href="https://www.google.com/maps/search/?api=1&query=13.0955919,77.5338903" target="_blank" rel="noopener">
+        Get Directions
       </a>
+      <p class="rsvp-note" id="directions-note">Tap to open the venue location in Google Maps.</p>
     </div>
   </main>
+
+  <script>
+    (function () {
+      var lat = 13.0955919;
+      var lng = 77.5338903;
+      var label = "Kalathur Gardens";
+      var isApple = /Mac|iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+      var link = document.getElementById("directions-link");
+      var note = document.getElementById("directions-note");
+
+      if (isApple) {
+        link.href = "https://maps.apple.com/?ll=" + lat + "," + lng + "&q=" + encodeURIComponent(label);
+        note.textContent = "Tap to open the venue location in Apple Maps.";
+      } else {
+        link.href = "https://www.google.com/maps/search/?api=1&query=" + lat + "," + lng;
+        note.textContent = "Tap to open the venue location in Google Maps.";
+      }
+    })();
+  </script>
 
 </body>
 </html>
